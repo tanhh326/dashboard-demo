@@ -1,0 +1,61 @@
+.btn {
+  width: 130px;
+  height: 35px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.normal {
+    background-image: url("../../assets/按钮未选中.png"), url("../../assets/按钮未选中1.png");
+    background-repeat: no-repeat, no-repeat;
+    background-position: 4px 0, 0 4px;
+    text-align: center;
+    line-height: 35px;
+
+    .text {
+      background-image: -webkit-linear-gradient(top, #fff, #fff, #69a2d8, #69a2d8, #69a2d8);
+    }
+
+    &.right {
+      .text {
+        transform: rotateY(-180deg);
+      }
+
+      transform: rotateY(180deg);
+    }
+  }
+
+  &.active {
+    background-image: url("../../assets/按钮选中.png"),
+    url("../../assets/按钮选中2.png"),
+    url("../../assets/按钮选中3.png"),
+    url("../../assets/按钮选中1.png");
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+    background-size: 100%, 100%, 100% 100%, 100% 100%;
+    background-position: 0 2.5px, -2px 0, center, top;
+    text-align: center;
+    line-height: 35px;
+
+    .text {
+      background-image: -webkit-linear-gradient(top, rgb(157, 195, 234), #fff, rgb(96, 162, 225));
+    }
+
+    &.left {
+      .text {
+        transform: rotateY(-180deg);
+      }
+
+      transform: rotateY(180deg);
+    }
+  }
+
+  .text {
+    font-weight: 600;
+    text-align: center;
+    user-select: none;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+

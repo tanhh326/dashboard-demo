@@ -1,7 +1,28 @@
 <script lang="ts" setup>
 import useLeftChart1 from "./hooks/useLeftChart1";
+import SwitchPageBtn from "./components/btn";
+import { ref } from "vue";
 
 const leftChart1 = useLeftChart1();
+
+const currentTab = ref<number>(1);
+
+function switchPage(tab: number) {
+  currentTab.value = tab;
+}
+
+const tabs = {
+  left: [
+    { id: 1, text: "数据统计" },
+    { id: 2, text: "数据统计" },
+    { id: 3, text: "数据统计" },
+  ],
+  right: [
+    { id: 4, text: "数据统计" },
+    { id: 5, text: "数据统计" },
+    { id: 6, text: "数据统计" },
+  ],
+};
 </script>
 
 <template>
@@ -14,7 +35,26 @@ const leftChart1 = useLeftChart1();
       src="./assets/循环背景动画.mp4"
     ></video>
     <div class="content">
-      <TChart :option="leftChart1.option" />
+      <div class="btn-group">
+        <div class="left">
+          <SwitchPageBtn
+            v-for="tab in tabs.left"
+            :active="currentTab === tab.id"
+            :text="tab.text"
+            direction="left"
+            @click="switchPage(tab.id)"
+          />
+        </div>
+        <div class="right">
+          <SwitchPageBtn
+            v-for="tab in tabs.right"
+            :active="currentTab === tab.id"
+            :text="tab.text"
+            direction="right"
+            @click="switchPage(tab.id)"
+          />
+        </div>
+      </div>
       <div class="center"></div>
       <div class="base-group">
         <div class="base">
@@ -81,6 +121,28 @@ const leftChart1 = useLeftChart1();
   width: 100%;
   height: 100%;
   top: 0;
+
+  .btn-group {
+    position: absolute;
+    top: 5%;
+    display: flex;
+    justify-content: center;
+    left: 50%;
+    gap: 100%;
+    transform: translateX(-50%);
+
+    .left {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .right {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+    }
+  }
 }
 
 .base-group {
