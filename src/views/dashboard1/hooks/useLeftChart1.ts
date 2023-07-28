@@ -1,33 +1,40 @@
-import { ref } from "vue";
+import { onBeforeUnmount, ref } from "vue";
 import { EChartsOption } from "echarts";
+import { generateNumbers } from "@/utils";
 
 export default function () {
   const option = ref<EChartsOption>({});
 
-  function fetchData() {
-    setTimeout(() => {
-      option.value = {
-        xAxis: {
-          type: "category",
-          data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+  function refresh() {
+    option.value = {
+      xAxis: {
+        type: "category",
+        data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+      },
+      yAxis: {
+        type: "value",
+      },
+      series: [
+        {
+          data: generateNumbers(200, 300, 7),
+          type: "line",
         },
-        yAxis: {
-          type: "value",
-        },
-        series: [
-          {
-            data: [150, 230, 224, 218, 135, 147, 260],
-            type: "line",
-          },
-        ],
-      };
-    }, 1500);
+      ],
+    };
   }
 
-  fetchData();
+  refresh();
+
+  const timer = setInterval(() => {
+    refresh();
+  }, 3000);
+
+  onBeforeUnmount(() => {
+    clearInterval(timer);
+  });
 
   return {
     option,
-    fetchData,
+    refresh,
   };
 }

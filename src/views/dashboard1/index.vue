@@ -2,10 +2,13 @@
 import useLeftChart1 from "./hooks/useLeftChart1";
 import SwitchPageBtn from "./components/btn";
 import { ref } from "vue";
+import useMap from "@/hooks/useMap";
 
 const leftChart1 = useLeftChart1();
 
 const currentTab = ref<number>(1);
+
+useMap("mapContainer");
 
 function switchPage(tab: number) {
   currentTab.value = tab;
@@ -34,7 +37,7 @@ const tabs = {
       muted
       src="./assets/循环背景动画.mp4"
     ></video>
-    <div class="content">
+    <div class="main">
       <div class="btn-group">
         <div class="left">
           <SwitchPageBtn
@@ -55,7 +58,34 @@ const tabs = {
           />
         </div>
       </div>
-      <div class="center"></div>
+      <div class="center">
+        <div class="left">
+          <div class="card-1">
+            <div class="title">数据统计</div>
+            <TChart :option="leftChart1.option" />
+          </div>
+          <div class="card-2">
+            <div class="title">数据统计</div>
+          </div>
+          <div class="card-3">
+            <div class="title">数据统计</div>
+          </div>
+        </div>
+        <div class="middle">
+          <div id="mapContainer" />
+        </div>
+        <div class="right">
+          <div class="card-1">
+            <div class="title">数据统计</div>
+          </div>
+          <div class="card-2">
+            <div class="title">数据统计</div>
+          </div>
+          <div class="card-3">
+            <div class="title">数据统计</div>
+          </div>
+        </div>
+      </div>
       <div class="base-group">
         <div class="base">
           <div class="name">当日销量</div>
@@ -85,15 +115,31 @@ const tabs = {
   position: relative;
   background-image: url("./assets/头部动画.webp"), url("./assets/头部动画.png"),
     url("./assets/整体边框_静态图片.png"), url("./assets/底部动画.webp"),
-    url("./assets/底部动画.png");
-  background-position: top, top, center, bottom, bottom;
-  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+    url("./assets/底部动画.png"), url("./assets/头部动画_左侧点.webp"),
+    url("./assets/头部动画_左侧点.png"), url("./assets/头部动画_右侧点.webp"),
+    url("./assets/头部动画_右侧点.png");
+  background-position:
+    top,
+    top,
+    center,
+    bottom,
+    bottom,
+    left top,
+    left top,
+    right top,
+    right top;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat,
+    no-repeat, no-repeat;
   background-size:
     100%,
     100%,
     100% 100%,
     100%,
-    100%;
+    100%,
+    auto,
+    auto,
+    auto,
+    auto;
 
   &:before {
     content: "数据可视化大屏展示系统";
@@ -116,7 +162,7 @@ const tabs = {
   object-fit: cover;
 }
 
-.content {
+.main {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -143,58 +189,130 @@ const tabs = {
       gap: 30px;
     }
   }
-}
 
-.base-group {
-  display: flex;
-  gap: 30%;
-  justify-content: center;
-  bottom: 4%;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  .center {
+    height: 100%;
+    display: flex;
 
-  .base {
-    text-align: center;
-    background-image: url("./assets/底座_静态图片.png"),
-      url("./assets/上升粒子1.webp"), url("./assets/上升粒子1.png"),
-      url("./assets/上升粒子2.webp"), url("./assets/上升粒子2.png");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    height: 100px;
-    width: 100px;
-    font-weight: 600;
-
-    .name {
-      color: rgb(79, 173, 225);
-      transform: skew(-12deg);
+    .middle {
+      #mapContainer {
+        width: 100%;
+        height: 100%;
+      }
     }
 
-    .number {
-      font-size: 1.5rem;
-      color: rgb(126, 181, 246);
-    }
-
-    &:after {
-      content: "";
-      height: 100px;
-      width: 100px;
-      display: block;
+    [class^="card-"] {
+      width: 100%;
+      position: relative;
+      background-image: url("./assets/01.webp"), url("./assets/01.png"),
+        url("./assets/标题1_静态背景.png");
       background-repeat: no-repeat;
       background-size: 100%;
-      background-image: url("./assets/底座_圆形_静态图片.png");
-      transform-origin: center;
-      transform: rotateX(-65deg);
-      scale: 1.5;
-      @keyframes rotateAnimation {
-        0% {
-          transform: translateY(-30px) rotateX(-65deg) rotate(0deg);
-        }
-        100% {
-          transform: translateY(-30px) rotateX(-65deg) rotate(360deg);
-        }
+
+      .title {
+        font-weight: bold;
+        background-image: -webkit-linear-gradient(
+          top,
+          rgb(157, 195, 234),
+          #fff,
+          rgb(96, 162, 225)
+        );
+        user-select: none;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        line-height: 30px;
+        margin-left: 80px;
+        color: #fff;
+        font-size: 18px;
       }
-      animation: rotateAnimation 3s infinite linear;
+    }
+
+    .middle {
+      width: 50%;
+      height: 100%;
+    }
+
+    .left {
+      padding-left: 30px;
+    }
+
+    .right {
+      padding-right: 30px;
+    }
+
+    .left,
+    .right {
+      width: 25%;
+      height: 100%;
+
+      .card-1 {
+        height: 300px;
+        top: 10%;
+      }
+
+      .card-2 {
+        height: 300px;
+        top: 10%;
+      }
+
+      .card-3 {
+        height: 300px;
+        top: 10%;
+      }
+    }
+  }
+
+  .base-group {
+    display: flex;
+    gap: 30%;
+    justify-content: center;
+    bottom: 4%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .base {
+      text-align: center;
+      background-image: url("./assets/底座_静态图片.png"),
+        url("./assets/上升粒子1.webp"), url("./assets/上升粒子1.png"),
+        url("./assets/上升粒子2.webp"), url("./assets/上升粒子2.png");
+      background-repeat: no-repeat;
+      background-size: 100%;
+      height: 100px;
+      width: 100px;
+      font-weight: 600;
+
+      .name {
+        color: rgb(79, 173, 225);
+        transform: skew(-12deg);
+      }
+
+      .number {
+        font-size: 1.5rem;
+        color: rgb(126, 181, 246);
+      }
+
+      &:after {
+        content: "";
+        height: 100px;
+        width: 100px;
+        display: block;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-image: url("./assets/底座_圆形_静态图片.png");
+        transform-origin: center;
+        transform: rotateX(-65deg);
+        scale: 1.5;
+        @keyframes rotateAnimation {
+          0% {
+            transform: translateY(-30px) rotateX(-65deg) rotate(0deg);
+          }
+          100% {
+            transform: translateY(-30px) rotateX(-65deg) rotate(360deg);
+          }
+        }
+        animation: rotateAnimation 3s infinite linear;
+      }
     }
   }
 }
