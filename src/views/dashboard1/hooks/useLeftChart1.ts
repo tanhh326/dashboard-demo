@@ -16,7 +16,15 @@ export default function () {
       },
       series: [
         {
-          data: generateNumbers(200, 300, 7),
+          data: generateNumbers(1, 300, 7),
+          type: "line",
+        },
+        {
+          data: generateNumbers(1, 300, 7),
+          type: "line",
+        },
+        {
+          data: generateNumbers(1, 300, 7),
           type: "line",
         },
       ],

@@ -3,9 +3,18 @@ import useLeftChart1 from "./hooks/useLeftChart1";
 import SwitchPageBtn from "./components/btn";
 import { ref } from "vue";
 import useMap from "@/hooks/useMap";
+import useLeftChart2 from "./hooks/useLeftChart2";
+import useLeftChart3 from "./hooks/useLeftChart3";
+import useRightChart1 from "./hooks/useRightChart1";
+import useRightChart2 from "./hooks/useRightChart2";
+import useRightChart3 from "./hooks/useRightChart3";
 
 const leftChart1 = useLeftChart1();
-
+const leftChart2 = useLeftChart2();
+const leftChart3 = useLeftChart3();
+const rightChart1 = useRightChart1();
+const rightChart2 = useRightChart2();
+const rightChart3 = useRightChart3();
 const currentTab = ref<number>(1);
 
 useMap("mapContainer");
@@ -35,6 +44,7 @@ const tabs = {
       class="background"
       loop
       muted
+      preload="auto"
       src="./assets/循环背景动画.mp4"
     ></video>
     <div class="main">
@@ -66,9 +76,11 @@ const tabs = {
           </div>
           <div class="card-2">
             <div class="title">数据统计</div>
+            <TChart :option="leftChart2.option" />
           </div>
           <div class="card-3">
             <div class="title">数据统计</div>
+            <TChart :option="leftChart3.option" />
           </div>
         </div>
         <div class="middle">
@@ -77,12 +89,15 @@ const tabs = {
         <div class="right">
           <div class="card-1">
             <div class="title">数据统计</div>
+            <TChart :option="rightChart1.option" />
           </div>
           <div class="card-2">
             <div class="title">数据统计</div>
+            <TChart :option="rightChart2.option" />
           </div>
           <div class="card-3">
             <div class="title">数据统计</div>
+            <TChart :option="rightChart3.option" />
           </div>
         </div>
       </div>
