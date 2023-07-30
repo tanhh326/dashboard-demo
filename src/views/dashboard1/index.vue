@@ -8,6 +8,7 @@ import useLeftChart3 from "./hooks/useLeftChart3";
 import useRightChart1 from "./hooks/useRightChart1";
 import useRightChart2 from "./hooks/useRightChart2";
 import useRightChart3 from "./hooks/useRightChart3";
+import useLayerStack from "@/hooks/useLayerStack";
 
 const leftChart1 = useLeftChart1();
 const leftChart2 = useLeftChart2();
@@ -17,7 +18,9 @@ const rightChart2 = useRightChart2();
 const rightChart3 = useRightChart3();
 const currentTab = ref<number>(1);
 
-useMap("mapContainer");
+const { mapInstance } = useMap("mapContainer");
+
+useLayerStack(mapInstance);
 
 function switchPage(tab: number) {
   currentTab.value = tab;
@@ -211,8 +214,9 @@ const tabs = {
 
     .middle {
       #mapContainer {
+        margin-top: 10%;
         width: 100%;
-        height: 100%;
+        height: 80%;
       }
     }
 

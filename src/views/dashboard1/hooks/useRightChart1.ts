@@ -20,7 +20,6 @@ export default function () {
       },
       series: [
         {
-          name: "质量",
           type: "radar",
           data: [
             {
