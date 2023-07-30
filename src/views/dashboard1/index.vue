@@ -51,6 +51,24 @@ const tabs = {
       src="./assets/循环背景动画.mp4"
     ></video>
     <div class="main">
+      <div class="top-count-group">
+        <div class="item">
+          <div class="title">数据统计</div>
+          <div class="number">200</div>
+        </div>
+        <div class="item">
+          <div class="title">综合评分</div>
+          <div class="number">99.2</div>
+        </div>
+        <div class="item">
+          <div class="title">总体效能</div>
+          <div class="number">8.9</div>
+        </div>
+        <div class="item">
+          <div class="title">任务达成</div>
+          <div class="number">86.2%</div>
+        </div>
+      </div>
       <div class="btn-group">
         <div class="left">
           <SwitchPageBtn
@@ -186,6 +204,42 @@ const tabs = {
   height: 100%;
   top: 0;
 
+  .top-count-group {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    text-align: center;
+    width: 100%;
+    height: 80px;
+    top: 8%;
+    background-image: url("./assets/头部吊坠.png");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    .title {
+      color: rgb(60, 193, 238);
+      font-weight: 600;
+      padding-top: 8px;
+      font-size: 14px;
+    }
+
+    .number {
+      font-weight: bold;
+      background-image: -webkit-linear-gradient(
+        top,
+        rgb(157, 195, 234),
+        #fff,
+        rgb(96, 162, 225)
+      );
+      user-select: none;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: #fff;
+      font-size: 18px;
+    }
+  }
+
   .btn-group {
     position: absolute;
     top: 5%;
@@ -214,7 +268,7 @@ const tabs = {
 
     .middle {
       #mapContainer {
-        margin-top: 10%;
+        margin-top: 12%;
         width: 100%;
         height: 80%;
       }
@@ -224,8 +278,13 @@ const tabs = {
       width: 100%;
       position: relative;
       background-image: url("./assets/01.webp"), url("./assets/01.png"),
-        url("./assets/标题1_静态背景.png");
+        url("./assets/标题1_静态背景.png"), url("./assets/卡片背景.png");
       background-repeat: no-repeat;
+      background-position:
+        top,
+        top,
+        top,
+        20px 40px;
       background-size: 100%;
 
       .title {
@@ -266,17 +325,17 @@ const tabs = {
 
       .card-1 {
         height: 300px;
-        top: 10%;
+        top: 11%;
       }
 
       .card-2 {
         height: 300px;
-        top: 10%;
+        top: 11%;
       }
 
       .card-3 {
         height: 300px;
-        top: 10%;
+        top: 11%;
       }
     }
   }

@@ -11,17 +11,12 @@ export default function () {
         trigger: "item",
         formatter: "{a} <br/>{b} : {c}%",
       },
-      legend: {
-        top: "15%",
-        orient: "vertical",
-        left: "left",
-      },
       series: [
         {
           name: "Funnel",
           type: "funnel",
-          left: "15%",
-          width: "80%",
+          left: "center",
+          width: "100%",
           min: 0,
           max: 1000,
           minSize: "0%",

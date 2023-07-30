@@ -14,6 +14,9 @@ export default function () {
       yAxis: {
         type: "value",
       },
+      grid: {
+        left: "12%",
+      },
       series: [
         {
           data: generateNumbers(1, 300, 7),

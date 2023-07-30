@@ -17,7 +17,7 @@ export default function () {
         top: "5%",
       },
       grid: {
-        left: 0,
+        left: "10%",
         bottom: "8%",
         containLabel: true,
       },
