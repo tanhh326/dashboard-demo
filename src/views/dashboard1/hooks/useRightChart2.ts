@@ -15,6 +15,10 @@ export default function () {
       },
       legend: {
         top: "5%",
+        itemStyle: {
+          borderColor: "#fff",
+          borderWidth: 2,
+        },
       },
       grid: {
         left: "10%",
