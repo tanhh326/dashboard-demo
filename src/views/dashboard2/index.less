@@ -1,0 +1,66 @@
+.dashboard {
+  width: 2560px;
+  height: 1080px;
+  position: relative;
+
+  background-image: url("./assets/整体边框_静态图片.png"),
+  url("./assets/底部_动画.png"),
+  url("./assets/底部_动画.webp"),
+  url("./assets/左边_动画.png"),
+  url("./assets/左边_动画.webp"),
+  url("./assets/右侧_动画.png"),
+  url("./assets/右侧_动画.webp"),
+  url("./assets/头部动画.png"),
+  url("./assets/头部动画.webp"),
+  url("./assets/头部动画2.png"),
+  url("./assets/头部动画2.webp"),
+  url("./assets/头部动画_上升粒子-.png"),
+  url("./assets/头部动画_上升粒子.webp"),
+  url("./assets/背景_静态图片.jpg");
+
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center,
+  bottom, bottom, left,
+  left, right, right,
+  top, top, top,
+  top, top, top;
+
+  .header {
+    position: absolute;
+    display: flex;
+  }
+
+  .main {
+    width: 100%;
+    height: 100%;
+
+    & > div {
+      height: 100%;
+      display: inline-flex;
+    }
+
+    & > .left {
+      width: 20%;
+      display: flex;
+      flex-direction: column;
+
+      & > :nth-child(1) {
+        border: 1px solid red;
+        flex-basis: 20%;
+      }
+    }
+
+    & > .center {
+      width: 60%;
+      background-image: url("./assets/center.png");
+      background-size: auto;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    & > .right {
+      width: 20%;
+    }
+  }
+}
