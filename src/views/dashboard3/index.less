@@ -1,0 +1,244 @@
+.panel {
+  width: 1920px;
+  height: 1080px;
+  position: relative;
+  background-color: rgba(198, 198, 227, 0.3);
+
+  .panel__title {
+    color: rgba(44, 46, 102, 1);
+    font-size: 56px;
+    position: absolute;
+    left: 57px;
+    top: 53px;
+    width: 605px;
+    height: 78px;
+  }
+
+  .bg__circle {
+    position: absolute;
+    width: 1341px;
+    height: 100%;
+    background-image: url("./assets/bg/Mask group.png");
+    background-repeat: no-repeat;
+    left: 579px;
+  }
+
+  .bg__arrow {
+    position: absolute;
+    width: 1293px;
+    height: 100%;
+    background-image: url("./assets/bg/Mask group(1).png");
+    background-repeat: no-repeat;
+    left: 0;
+  }
+
+  .box-group {
+    position: absolute;
+    top: 170px;
+    display: flex;
+    flex-direction: column;
+    gap: 37px;
+    left: 56px;
+
+    & > .box {
+      width: 409px;
+      height: 149px;
+      background-color: #6C71F0;
+      border-radius: 20px;
+      display: flex;
+      color: #fff;
+      font-size: 20px;
+      text-align: left;
+
+      & > div {
+        height: auto;
+      }
+
+      & > .left, .right {
+        flex: 1;
+        margin-top: 21px;
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+        text-indent: 21px;
+
+        & > div {
+          height: 28px;
+        }
+      }
+
+      .right {
+        .score {
+          display: flex;
+          gap: 8px;
+          padding-left: 21px;
+          align-items: center;
+
+          & > div {
+            width: 20px;
+            height: 20px;
+          }
+
+          & > div:nth-child(-n + 5) {
+            background-image: url("./assets/icon/Vector.png");
+            background-position: center;
+            background-size: 100% 100%;
+
+            &.active {
+              background-image: url("./assets/icon/Vector2.png");
+            }
+          }
+
+          & > div:last-of-type {
+            padding-left: 7px;
+            text-indent: 0;
+            width: 12px;
+            height: 28px;
+          }
+        }
+      }
+
+      .middle {
+        margin: 15px 0;
+        width: 1px;
+        background-color: #FFFFFF;
+        border-radius: 20px;
+      }
+    }
+  }
+
+  .chart-group {
+    position: absolute;
+    right: 54px;
+    top: 176px;
+    display: flex;
+    gap: 46px;
+    text-align: center;
+    font-weight: 600;
+
+    & .chart {
+      width: 200px;
+      height: 200px;
+
+      &__low {
+        background-image: url("./assets/icon/Group 40.png");
+      }
+
+      &__middle {
+        background-image: url("./assets/icon/Group 38.png");
+      }
+
+      &__high {
+        background-image: url("./assets/icon/Group 39.png");
+      }
+
+      & .desc {
+        color: rgba(255, 255, 255, 1);
+        font-size: 18px;
+        transform: translateY(150px);
+        height: 25px;
+        line-height: 21px;
+      }
+    }
+
+    & .value {
+      color: rgba(44, 46, 102, 1);
+      font-size: 32px;
+      margin-top: 14px;
+    }
+  }
+
+  .icon-group {
+
+    &__small {
+      display: flex;
+      flex-direction: column;
+      gap: 100px;
+      position: absolute;
+      left: 518px;
+      top: 227px;
+
+      & > div {
+        display: flex;
+        gap: 64px;
+
+        & > i {
+          width: 80px;
+          height: 80px;
+
+          &:nth-of-type(1) {
+            background-image: url("./assets/icon/Group 29.png");
+          }
+
+          &:nth-of-type(2) {
+            background-image: url("./assets/icon/Group 36.png");
+          }
+
+          &:nth-of-type(3) {
+            background-image: url("./assets/icon/Group 37.png");
+          }
+        }
+      }
+    }
+
+    &__large {
+      display: flex;
+      gap: 62px;
+      position: absolute;
+      right: 45px;
+      top: 579px;
+
+      & > i {
+        width: 110px;
+        height: 110px;
+
+        &:nth-of-type(1) {
+          background-image: url("./assets/icon/Group 21.png");
+        }
+
+        &:nth-of-type(2) {
+          background-image: url("./assets/icon/Group 20.png");
+        }
+
+        &:nth-of-type(3) {
+          background-image: url("./assets/icon/Group 19.png");
+        }
+
+        &:nth-of-type(4) {
+          background-image: url("./assets/icon/Group 18.png");
+        }
+      }
+    }
+
+  }
+
+  .flow-svg {
+    height: 100%;
+    width: 100%;
+
+    & text {
+      font-size: 16px;
+      fill: rgba(44, 46, 102, 1);
+    }
+
+    & polyline {
+      stroke: #ccc;
+      stroke-width: 2px;
+      fill: none;
+    }
+
+    & circle {
+      fill: rgba(63, 188, 107, 1);
+      filter: drop-shadow(0px 0px 3px rgba(63, 188, 107, 0.5));
+    }
+
+    .rotate-text, .merge-text {
+      & text {
+        fill: rgba(44, 46, 102, 1);
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 23px;
+      }
+    }
+  }
+}

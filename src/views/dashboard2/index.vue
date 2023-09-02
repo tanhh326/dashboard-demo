@@ -1,14 +1,22 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import SwitchPageBtn from "@/views/dashboard1/components/btn";
+</script>
 
 <template>
   <div class="dashboard">
     <div class="header">
-      <div>页面一</div>
-      <div>页面二</div>
-      <div>页面三</div>
-      <div>页面四</div>
-      <div>页面五</div>
-      <div>页面六</div>
+      <div class="left">
+        <switch-page-btn active direction="left" text="页面一" />
+        <switch-page-btn active direction="left" text="页面一" />
+        <switch-page-btn active direction="left" text="页面一" />
+        <switch-page-btn active direction="left" text="页面一" />
+      </div>
+      <div class="right">
+        <switch-page-btn active direction="left" text="页面一" />
+        <switch-page-btn active direction="left" text="页面一" />
+        <switch-page-btn active direction="left" text="页面一" />
+        <switch-page-btn active direction="left" text="页面一" />
+      </div>
     </div>
     <div class="main">
       <div class="left">

@@ -1,0 +1,36 @@
+.chart {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #6C71F0;
+  font-size: 18px;
+  color: #fff;
+  position: relative;
+
+  .scale__ul {
+    list-style: none;
+
+    .scale__li {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform-origin: left top;
+      width: 16px;
+      height: 10px;
+      border-radius: 2px;
+      background-color: rgba(149, 152, 241, .8);
+
+      &--active {
+        background-color: #68CE67;
+      }
+
+      &--long {
+        width: 22px;
+      }
+    }
+  }
+
+  .name {
+    transform: translateY(150px);
+  }
+}
